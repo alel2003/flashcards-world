@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  password  String
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+  wordCards WordCard[]
+
+  @@map("user")
+}
+
+model WordCard {
+  id          Int       @id @default(autoincrement())
+  word        String    @unique
+  translation String
+  isDelete    Boolean   @default(false) @map("is_delete")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  userId      String    @map("user_id")
+  examples    Example[]
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([id, userId])
+  @@map("word_card")
+}
+
+model Example {
+  id         Int      @id @default(autoincrement())
+  text       String
+  wordCardId Int      @map("word_card_id")
+  wordCard   WordCard @relation(fields: [wordCardId], references: [id], onDelete: Cascade)
+
+  @@map("example")
+}
