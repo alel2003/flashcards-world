@@ -17,9 +17,9 @@
   <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
 </p>
 
-# 🌟 Word Cards
+# 🌟 Flash Cards World
 
-Word-Cards is a RESTful API built for managing tasks and records. This project is developed using Django, Django REST Framework (DRF), Docker, and PostgreSQL as the database.
+Flash Cards World is a RESTful API built for managing tasks and records. This project is developed using Django, Django REST Framework (DRF), Docker, and PostgreSQL as the database.
 
 ## 🚀 Quick Start Guide
 
@@ -30,8 +30,8 @@ Follow these steps to set up and run the Word-Cards on your local machine.
 Start by cloning the repository:
 
 ```bash
-git clone https://github.com/alel2003/word-cards.git
-cd word-cards
+git clone https://github.com/alel2003/flashcards-world.git
+cd flashcards-world
 ```
 
 ### 📦 2. Dependency installation
